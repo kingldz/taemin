@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingldz TaeMin</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.phone {
+  width: 360px;
+  height: 750px;
+  background: #111;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+/* HEADER (SIN CAMBIOS) */
+.header {
+  background: #f5f5f5;
+  height: 45%;
+  padding-top: 50px;
+  text-align: center;
+  position: relative;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #1a1a1a;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.profile {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: auto;
+  background: url("image/lisa.jpg") center/cover;
+  box-shadow: inset 0 2px 3px #FFFFFF,
+            inset -0 -2px 3px #D88585;
+}
+
+.name {
+  margin-top: 11px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+}
+
+.role {
+  font-size: 13px;
+  color: #777;
+}
+
+.socials {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.instagram { background: linear-gradient(135deg, #f56040, #c13584, #833ab4); }
+.linkedin { background: #0a66c2; }
+.telegram { background: #229ed9; }
+.whatsapp { background: mediumseagreen; }
+
+/* ====================== CONTENIDO GRIS ====================== */
+.content {
+  background: #1a1a1a;
+  height: 60%;
+  padding: 20px 20px 25px;
+  color: white;
+  overflow-y: auto;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section h3 {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* CARRUSEL DE LISA - IMÁGENES VERTICALES */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 0px #0000004D;
+  transition: all 0.3s ease;
+}
+
+.carousel-inner {
+  display: flex;
+  width: 400%;
+  height: 100%;
+  animation: slide 16s infinite;
+}
+
+.carousel-slide {
+  width: 25%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* Se ve completo y centrado */
+}
+
+/* Animación automática */
+@keyframes slide {
+  0%    { transform: translateX(0); }
+  20%   { transform: translateX(0); }
+  25%   { transform: translateX(-25%); }
+  45%   { transform: translateX(-25%); }
+  50%   { transform: translateX(-50%); }
+  70%   { transform: translateX(-50%); }
+  75%   { transform: translateX(-75%); }
+  95%   { transform: translateX(-75%); }
+  100%  { transform: translateX(0); }
+}
+
+/* HABILIDADES y resto */
+.profession {
+  padding: 14px 16px;
+  background: #222;
+  border-radius: 12px;
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 14.5px;
+    box-shadow: 0 2px 0px #0000004D;
+  transition: all 0.3s ease;
+}
+
+.about {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ccc;
+  background: #222;
+  padding: 16px;
+  border-radius: 12px;
+    box-shadow: 0 2px 0px #0000004D;
+  transition: all 0.3s ease;
+}
+
+.exp {
+  background: #222;
+  padding: 16px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 0px #0000004D;
+  transition: all 0.3s ease;
+}
+
+.exp:hover {
+  transform: translateY(-2px);
+}
+
+.exp small {
+  color: #888;
+  font-size: 12.5px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #222;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+    box-shadow: 0 2px 0px #0000004D;
+  transition: all 0.3s ease;
+}
+
+.info-item i {
+  color: hotpink;
+  width: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <!-- PARTE BLANCA (sin cambios) -->
+  <div class="header">
+    <div class="profile"></div>
+    <div class="name">Kingldz Taemin</div>
+    <div class="role">Backend Developer</div>
+
+    <div class="socials">
+      <a href="https://instagram.com/py_taemin" class="instagram" target="_blank" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="linkedin" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://t.me/+pJE6BVWO0-VmMjgx" class="telegram" target="_blank" title="Telegram">
+        <i class="fab fa-telegram-plane"></i>
+      </a>
+      <a href="https://wa.me/51994935523?text=Hello%20Taemin,%20You%20are%20hate%20me?" class="whatsapp" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- PARTE GRIS CON CARRUSEL VERTICAL -->
+  <div class="content">
+
+    <div class="section">
+      <div class="carousel">
+        <div class="carousel-inner">
+          <!-- Imagen 1 - Vertical -->
+          <div class="carousel-slide">
+            <img src="image/pink.jpg" alt="Lisa BLACKPINK">
+          </div>
+          <!-- Imagen 2 - Vertical -->
+          <div class="carousel-slide">
+            <img src="image/engel.jpg" alt="Lisa BLACKPINK">
+          </div>
+          <!-- Imagen 3 - Vertical -->
+          <div class="carousel-slide">
+            <img src="image/blackpink.jpg" alt="Lisa BLACKPINK">
+          </div>
+          <!-- Imagen 4 - Vertical -->
+          <div class="carousel-slide">
+            <img src="image/roses.jpg" height="316" width="345" frameborder="0" scrolling="no" alt="Lisa BLACKPINK">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>EXPERIENCIE</h3>
+      <div class="exp">
+        Software Engineer<br>
+        <small>Freelancer • Feb 2023 - Present</small>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>SKILLS</h3>
+      <div class="profession">Python, Node.js, Docker, PostgreSQL, Git, Linux, REST APIs</div>
+    </div>
+
+    <div class="section">
+      <h3>OVERVIEW!</h3>
+      <div class="about">Building scalable APIs and microservices with Node.js and Python. Focused on containerized deployments, database optimization, and clean architecture. Based in Bagua Grande, Peru.
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>CONTACT</h3>
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <span>kinglethxl@gmail.com</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Bagua Grande, Perú</span>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-clock"></i>
+          <span>Disponible para cualquier cosa</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
